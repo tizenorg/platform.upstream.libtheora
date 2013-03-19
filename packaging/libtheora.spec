@@ -4,7 +4,7 @@ Release:        14
 License:        BSD-3-Clause
 Summary:        Free Video Codec
 Url:            http://www.theora.org/
-Group:          Productivity/Multimedia/Other
+Group:          Multimedia/Video
 %define pkg_version %{version}
 Source:         %{name}-%{version}.tar.bz2
 Source2:        baselibs.conf
@@ -23,7 +23,7 @@ to playback VP3 streams.
 %package devel
 License:        BSD-3-Clause
 Summary:        Free Video Codec
-Group:          Development/Libraries/C and C++
+Group:          Development/Libraries
 Requires:       libogg-devel
 Requires:       libtheora = %{version}
 
@@ -57,13 +57,13 @@ rm -rf %{buildroot}/%{_datadir}/doc/%{name}-%{version}/*
 
 %files
 %defattr(-,root,root)
+%doc COPYING LICENSE
 %{_libdir}/libtheora.so.0*
 %{_libdir}/libtheoradec.so.1*
 %{_libdir}/libtheoraenc.so.1*
 
 %files devel
 %defattr(-,root,root)
-%doc COPYING LICENSE
 %{_includedir}/theora
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/theoradec.pc
