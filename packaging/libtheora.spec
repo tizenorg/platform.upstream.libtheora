@@ -8,6 +8,7 @@ Group:          Multimedia/Video
 %define pkg_version %{version}
 Source:         %{name}-%{version}.tar.bz2
 Source2:        baselibs.conf
+Source1001: 	libtheora.manifest
 BuildRequires:  gcc-c++
 BuildRequires:  libogg-devel
 BuildRequires:  libtool
@@ -34,6 +35,7 @@ to playback VP3 streams.
 
 %prep
 %setup -q -n %{name}-%{pkg_version}
+cp %{SOURCE1001} .
 
 %build
 ACLOCAL="aclocal -I m4" autoreconf -f -i
@@ -56,6 +58,7 @@ rm -rf %{buildroot}/%{_datadir}/doc/%{name}-%{version}/*
 %postun  -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %doc COPYING LICENSE
 %{_libdir}/libtheora.so.0*
@@ -63,6 +66,7 @@ rm -rf %{buildroot}/%{_datadir}/doc/%{name}-%{version}/*
 %{_libdir}/libtheoraenc.so.1*
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %{_includedir}/theora
 %{_libdir}/*.so
