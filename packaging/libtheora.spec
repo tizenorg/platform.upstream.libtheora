@@ -1,7 +1,7 @@
 Name:           libtheora
 Version:        1.1.1
 Release:        14
-License:        BSD-3-Clause
+License:        BSD-2.0
 Summary:        Free Video Codec
 Url:            http://www.theora.org/
 Group:          Multimedia/Video
